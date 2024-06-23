@@ -1,0 +1,17 @@
+---
+title: Freshly implemented features with missing reference documenation
+layout: layout.njk
+---
+<h1>{{ title }}</h1>
+
+<p>Fresh = Chrome 120+, Firefox 120+, Safari 17+</p>
+
+<p>{{freshFeatures.length }} features found.</p>
+
+<ul class="features">
+  {% for feature in freshFeatures %}
+    <li>
+      {% include "feature_short.njk" %}
+    </li>
+  {% endfor %}
+</ul>

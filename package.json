@@ -1,13 +1,17 @@
 {
-  "name": "web-features-explorer",
-  "description": "Visualize web features",
+  "name": "web-docs-backlog",
+  "description": "Backlog for web platform docs",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@mdn/browser-compat-data": "^5.5.34",
+    "@11ty/eleventy": "3.0.0-alpha.13",
+    "compute-baseline": "^0.1.1",
     "web-features": "next"
   },
   "scripts": {
     "build": "npx rimraf docs && npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@mdn/browser-compat-data": "^5.5.34"
   }
 }

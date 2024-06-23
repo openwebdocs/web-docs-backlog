@@ -1,10 +1,10 @@
 ---
-title: Newly available features
+title: Newly available features with missing reference documenation
 layout: layout.njk
 ---
 <h1>{{ title }}</h1>
 
-<p>These web features became supported in all core browsers recently.</p>
+<p>{{recentBaselineFeatures.length }} features found.</p>
 
 <ul class="features">
   {% for feature in recentBaselineFeatures %}

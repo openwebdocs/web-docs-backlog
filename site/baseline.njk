@@ -1,11 +1,11 @@
 ---
-title: Widely available features
+title: Widely available features with missing reference documenation
 layout: layout.njk
 ---
 
 <h1>{{ title }}</h1>
 
-<p>These features have been supported across all core browsers for a while.</p>
+<p>{{baselineFeatures.length }} features found.</p>
 
 <ul class="features">
   {% for feature in baselineFeatures %}

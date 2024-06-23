@@ -1,5 +1,16 @@
-<div class="availability">
-  {% if not feature.status.baseline %}Limited availability{% endif %}
-  {% if feature.status.baseline === "low" %}Newly available since {{ feature.status.baseline_low_date }} (baseline low){% endif %}
-  {% if feature.status.baseline === "high" %}Widely available since {{ feature.status.baseline_high_date }} (baseline high){% endif %}
-</div>
+<span class="availability baseline-{{ feature.status.baseline }}">
+  {% if not feature.status.baseline %}
+    Limited availability. In {{feature.status.support | length }} browsers only: 
+    {% for key,value in feature.status.support %}
+       [{{key}}: {{value}}]
+    {% endfor %}
+  {% endif %}
+
+  {% if feature.status.baseline === "low" %}
+    Newly available since {{ feature.status.baseline_low_date }} (baseline low)
+  {% endif %}
+  
+  {% if feature.status.baseline === "high" %}
+    Widely available since {{ feature.status.baseline_high_date }} (baseline high)
+  {% endif %}
+</span>

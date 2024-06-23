@@ -1,10 +1,2 @@
-<div id="{{ feature.id }}" class="feature short baseline-{{ feature.status.baseline }}">
-  <div class="header">
-    <h2>{{ feature.name }}</h2>
-    {% include "baseline.njk" %}
-  </div>
-  <p>{{ feature.description_html | safe }}</p>
-  <p><strong><a href="/features/{{ feature.id | slugify }}/">Learn more</a></strong></p>
-
-  {% include "compat.njk" %}
-</div>
+{% include "baseline.njk" %}
+ <a href="{{ feature.compat.spec_url }}">{{ feature.id }}</a>
