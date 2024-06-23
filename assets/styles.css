@@ -72,6 +72,10 @@ h3 .subtext {
   font-weight: normal;
 }
 
+.features li {
+  padding: 15px;
+}
+
 .feature {
   padding: var(--margin);
   border-radius: 0.5rem;
@@ -134,14 +138,15 @@ h3 .subtext {
   background-size: 1.5rem;
   background-image: url(./baseline-limited.svg);
   margin-left: auto;
+  margin-right: 5px;
 }
 
-.baseline-low .availability {
+.baseline-low {
   --bg: var(--baseline-low-label-bg);
   background-image: url(./baseline-low.svg);
 }
 
-.baseline-high .availability {
+.baseline-high {
   --bg: var(--baseline-high-label-bg);
   background-image: url(./baseline-high.svg);
 }
@@ -284,32 +289,6 @@ nav li {
   border: none;
   padding: 0;
   margin: 0;
-}
-
-.monthly-update-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: var(--margin);
-}
-
-.monthly-update-list .month-entry {
-  padding: 0 calc(var(--margin) / 2);
-  border-radius: 0.5rem;
-  background: var(--background-alt);
-}
-
-.monthly-update-list .month-entry h2 {
-  margin: 1rem 0;
-}
-
-.month-update h2 {
-  display: flex;
-  gap: .5rem;
-  justify-content: space-between;
-}
-
-.month-update h2 div {
-  background: none;
 }
 
 footer {
