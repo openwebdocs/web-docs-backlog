@@ -18,7 +18,10 @@ for (const feature of bcd.walk()) {
   if (feature.id.split(".").length > 3 && !feature.id.startsWith("javascript") || feature.id.includes('_') ) {
     continue;
   }
-  if (!feature.mdn_url && !feature.deprecated && baseline) {
+  // Look for missing MDN URLs
+  if (!feature.mdn_url
+      && !feature.deprecated
+      && feature.data.__compat.status.standard_track ) {
     all.push({id: feature.id, compat: feature.data.__compat, status: baseline});
   }
 }
