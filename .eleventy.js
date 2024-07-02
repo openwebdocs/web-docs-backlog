@@ -4,7 +4,7 @@ import { Compat } from "compute-baseline/browser-compat-data";
 
 const bcd = new Compat();
 let all = [];
-for (const feature of bcd.walk()) {
+for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg", "mathml", "webassembly", "webdriver"],)) {
   let baseline = false;
   try {
     baseline = JSON.parse(computeBaseline({compatKeys: [feature.id], withAncestors: false}).toJSON());
