@@ -2,6 +2,12 @@ const { HtmlBasePlugin } = await import("@11ty/eleventy");
 import { computeBaseline } from "compute-baseline";
 import { Compat } from "compute-baseline/browser-compat-data";
 
+
+// Remove this hack once https://github.com/11ty/eleventy-dependency-tree-esm/issues/2 is solved.
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const pkg = require("./package.json");
+
 const bcd = new Compat();
 let all = [];
 for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg", "mathml", "webassembly", "webdriver"],)) {
@@ -33,7 +39,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("versions", async () => {
     return {
       date: new Date().toLocaleDateString(),
-    // bcd: ???.__meta.version, TODO: Fix this
+      bcd: pkg.peerDependencies["@mdn/browser-compat-data"].replace('^', ''),
     };
   });
 
