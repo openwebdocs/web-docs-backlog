@@ -72,6 +72,24 @@ export default function (eleventyConfig) {
     new Date(a.status.baseline_low_date)).sort((a, b) => Object.keys(b.status.support).length - Object.keys(a.status.support).length);
   });
 
+  eleventyConfig.addGlobalData("chromiumFeatures", async () => {
+    return all.filter(feature =>  {
+      return feature.status.support.chrome ;
+    }).sort((a, b) =>  b.status.support.chrome  - a.status.support.chrome )
+  });
+
+  eleventyConfig.addGlobalData("geckoFeatures", async () => {
+    return all.filter(feature =>  {
+      return feature.status.support.firefox ;
+    }).sort((a, b) =>  b.status.support.firefox  - a.status.support.firefox )
+  });
+
+  eleventyConfig.addGlobalData("webkitFeatures", async () => {
+    return all.filter(feature =>  {
+      return feature.status.support.safari ;
+    }).sort((a, b) =>  b.status.support.safari  - a.status.support.safari )
+  });
+
   return {
     dir: {
       input: "site",

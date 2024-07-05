@@ -1,0 +1,17 @@
+---
+title: Chromium implemented features with missing reference documentation
+layout: layout.njk
+---
+<h1>{{ title }}</h1>
+
+<p>Sorted by recently implemented.</p>
+
+<p>{{chromiumFeatures.length }} features found.</p>
+
+<ul class="features">
+  {% for feature in chromiumFeatures %}
+    <li>
+      {% include "feature_short.njk" %}
+    </li>
+  {% endfor %}
+</ul>
