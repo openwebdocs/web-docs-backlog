@@ -4,8 +4,7 @@
   "devDependencies": {
     "@11ty/eleventy": "3.0.0-alpha.13",
     "compute-baseline": "^0.1.1",
-    "patch-package": "^8.0.0",
-    "web-features": "next"
+    "patch-package": "^8.0.0"
   },
   "scripts": {
     "build": "npx rimraf docs && npx @11ty/eleventy",
