@@ -5,7 +5,7 @@
     "@11ty/eleventy": "3.0.0-alpha.14",
     "compute-baseline": "^0.1.1",
     "patch-package": "^8.0.0",
-    "@mdn/browser-compat-data": "^5.5.36"
+    "@mdn/browser-compat-data": "^5.5.38"
   },
   "scripts": {
     "build": "npx rimraf docs && npx @11ty/eleventy",
