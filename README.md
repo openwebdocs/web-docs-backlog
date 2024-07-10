@@ -6,15 +6,13 @@ A website to visualize the web platform reference pages that's maintained by Ope
 
 ### Data
 
-The data that the website is based on comes from the [web-features](https://www.npmjs.com/package/web-features) npm package, by using its **next** version (which always provide the data from the latest commit on the web-features repo).
-
-In addition, the [@mdn/browser-compat-data](https://www.npmjs.com/package/browser-compat-data) npm package is used to get various other pieces of information, such as links to MDN documentation and links to bug trackers.
+The data that the website is based on comes from the [@mdn/browser-compat-data](https://www.npmjs.com/package/browser-compat-data) npm package
 
 To ensure you have the latest data:
 
 1. Run `npx npm-check-updates -u`
 
-1. Run `npm update web-features`
+1. Run `npm updat e@mdn/browser-compat-data`
 
 ### Build
 
@@ -29,8 +27,8 @@ To re-generate the website, after updating the data:
 1. Run `npm install`
 
 1. Run `npm run build` to generate the site
-   
-   You can also run `npm run serve` to start a local server and watch for changes
+
+   You can also run `npx eleventy --serve` to start a local server and watch for changes
 
 ### Deployment
 
@@ -42,4 +40,4 @@ The static HTML pages are generated on the [gh-pages branch](https://github.com/
 
 The website is automatically updated on every push to the main branch by using a GitHub Actions script found in `.github/workflows/generate-site.yaml`.
 
-The dependencies are also automatically updated every day by using the GitHub Actions script in `.github/workflows/bump-deps.yaml`.
+The dependencies are also automatically updated everyday by dependabot.
