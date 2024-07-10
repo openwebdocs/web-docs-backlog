@@ -39,7 +39,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("versions", async () => {
     return {
       date: new Date().toLocaleDateString(),
-      bcd: pkg.peerDependencies["@mdn/browser-compat-data"].replace('^', ''),
+      bcd: pkg.devDependencies["@mdn/browser-compat-data"].replace('^', ''),
     };
   });
 
