@@ -24,6 +24,19 @@ for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg
   if (feature.id.split(".").length > 3 && !feature.id.startsWith("javascript") || feature.id.includes('_') ) {
     continue;
   }
+
+  // Ignore Temporal for now
+  if (feature.id.includes("Temporal")) {
+    continue;
+  }
+
+  // Ignore iterables for now
+  // https://github.com/orgs/mdn/discussions/707
+  const iterableMembers = [".@@asyncIterator", ".@@iterator", ".entries", ".forEach", ".get", ".has", ".keys", ".size", ".values", ".add", "clear", "delete"];
+  if (iterableMembers.some(member => feature.id.endsWith(member))) {
+    continue;
+  }
+
   // Look for missing MDN URLs
   if (!feature.mdn_url
       && !feature.deprecated
@@ -67,7 +80,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addGlobalData("freshFeatures", async () => {
     return all.filter(feature =>  {
-      return feature.status.support.chrome > 120 || feature.status.support.firefox > 120 || feature.status.support.safari > 17;
+      return feature.status.support.chrome > 119 || feature.status.support.firefox > 119 || feature.status.support.safari > 17;
     }).sort((a, b) => new Date(b.status.baseline_low_date) -
     new Date(a.status.baseline_low_date)).sort((a, b) => Object.keys(b.status.support).length - Object.keys(a.status.support).length);
   });
