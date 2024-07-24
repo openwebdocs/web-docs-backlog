@@ -39,7 +39,6 @@ for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg
 
   // Look for missing MDN URLs
   if (!feature.mdn_url
-      && !feature.deprecated
       && feature.data.__compat.status.standard_track ) {
     all.push({id: feature.id, compat: feature.data.__compat, status: baseline});
   }
