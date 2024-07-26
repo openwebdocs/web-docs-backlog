@@ -32,8 +32,49 @@ for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg
 
   // Ignore iterables for now
   // https://github.com/orgs/mdn/discussions/707
-  const iterableMembers = [".@@asyncIterator", ".@@iterator", ".entries", ".forEach", ".get", ".has", ".keys", ".size", ".values", ".add", "clear", "delete"];
-  if (iterableMembers.some(member => feature.id.endsWith(member))) {
+  const iterableInterfaces = [
+    "AudioParamMap",
+    "CSSNumericArray",
+    "CSSStyleDeclaration",
+    "CSSTransformValue",
+    "CSSUnparsedValue",
+    "CustomStateSet",
+    "DOMTokenList",
+    "EventCounts",
+    "FileSystemDirectoryHandle",
+    "FontFaceSet",
+    "FormData",
+    "GPUSupportedFeatures",
+    "Headers",
+    "Highlight",
+    "HighlightRegistry",
+    "KeyboardLayoutMap",
+    "MIDIInputMap",
+    "MIDIOutputMap",
+    "MediaKeyStatusMap",
+    "NodeList",
+    "PaymentInstruments",
+    "ReadableStream",
+    "StylePropertyMapReadOnly",
+    "URLSearchParams",
+    "ViewTransitionTypeSet",
+    "WGSLLanguageFeatures",
+    "WorkletSharedStorage",
+    "XRAnchorSet",
+    "XRHand",
+    "XRInputSourceArray"
+  ]
+  const iterableMembers = [
+    ".@@asyncIterator", ".@@iterator",
+    ".entries", ".forEach",
+    ".get", ".has",
+    ".keys", ".size",
+    ".values", ".add",
+    ".clear", ".delete"
+  ];
+
+  if (iterableInterfaces.some(iface => feature.id.includes(iface))
+    && iterableMembers.some(member => feature.id.endsWith(member))) {
     continue;
   }
 
