@@ -12,7 +12,7 @@ To ensure you have the latest data:
 
 1. Run `npx npm-check-updates -u`
 
-1. Run `npm updat e@mdn/browser-compat-data`
+1. Run `npm update @mdn/browser-compat-data`
 
 ### Build
 
