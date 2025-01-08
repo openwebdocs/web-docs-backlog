@@ -25,11 +25,6 @@ for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg
     continue;
   }
 
-  // Ignore Temporal for now
-  if (feature.id.includes("Temporal")) {
-    continue;
-  }
-
   // Ignore iterables for now
   // https://github.com/orgs/mdn/discussions/707
   const iterableInterfaces = [
