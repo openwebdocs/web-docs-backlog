@@ -4,13 +4,11 @@
   "devDependencies": {
     "@11ty/eleventy": "3.0.0",
     "@mdn/browser-compat-data": "^5.7.3",
-    "compute-baseline": "^0.3.0",
-    "patch-package": "^8.0.0"
+    "compute-baseline": "^0.3.0"
   },
   "scripts": {
     "build": "npx rimraf docs && npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve",
-    "postinstall": "patch-package"
+    "serve": "npx @11ty/eleventy --serve"
   },
   "type": "module"
 }
