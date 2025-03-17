@@ -4,7 +4,7 @@
   "devDependencies": {
     "@11ty/eleventy": "3.0.0",
     "@mdn/browser-compat-data": "^5.7.3",
-    "compute-baseline": "^0.1.1",
+    "compute-baseline": "^0.3.0",
     "patch-package": "^8.0.0"
   },
   "scripts": {
