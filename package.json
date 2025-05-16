@@ -3,7 +3,7 @@
   "description": "Backlog for web platform docs",
   "devDependencies": {
     "@11ty/eleventy": "3.1.0",
-    "@mdn/browser-compat-data": "^6.0.14",
+    "@mdn/browser-compat-data": "^6.0.15",
     "compute-baseline": "^0.3.1"
   },
   "scripts": {
