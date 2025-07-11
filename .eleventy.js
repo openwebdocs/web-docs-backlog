@@ -116,7 +116,7 @@ export default function (eleventyConfig) {
     return all.filter(feature =>  {
       return feature.status.support.chrome > 119 || feature.status.support.firefox > 119 || feature.status.support.safari > 17;
     }).sort((a, b) => new Date(b.status.baseline_low_date) -
-    new Date(a.status.baseline_low_date)).sort((a, b) => Object.keys(b.status.support).length - Object.keys(a.status.support).length);
+    new Date(a.status.baseline_low_date));
   });
 
   eleventyConfig.addGlobalData("chromiumFeatures", async () => {
