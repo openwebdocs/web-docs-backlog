@@ -1,5 +1,5 @@
 diff --git a/node_modules/compute-baseline/dist/browser-compat-data/browser.js b/node_modules/compute-baseline/dist/browser-compat-data/browser.js
-index 1e865af..89a9e9b 100644
+index 1e865af..fc37272 100644
 --- a/node_modules/compute-baseline/dist/browser-compat-data/browser.js
 +++ b/node_modules/compute-baseline/dist/browser-compat-data/browser.js
 @@ -36,7 +36,7 @@ export class Browser {
@@ -7,12 +7,12 @@ index 1e865af..89a9e9b 100644
      }
      current() {
 -        const curr = this.releases.find((r) => r.data.status === "current");
-+        const curr = this.releases.find((r) => r.data.status === "beta");
++        const curr = this.releases.findLast((r) => r.data.status === "beta");
          if (curr === undefined) {
              throw new Error(`${browser} does not have a "current" release`);
          }
 diff --git a/node_modules/compute-baseline/dist/browser-compat-data/release.js b/node_modules/compute-baseline/dist/browser-compat-data/release.js
-index 58fa044..7e55306 100644
+index 58fa044..5854ecf 100644
 --- a/node_modules/compute-baseline/dist/browser-compat-data/release.js
 +++ b/node_modules/compute-baseline/dist/browser-compat-data/release.js
 @@ -39,7 +39,7 @@ export class Release {
@@ -20,7 +20,7 @@ index 58fa044..7e55306 100644
      }
      isPrerelease() {
 -        if (["beta", "nightly", "planned"].includes(this.data.status)) {
-+        if (["nightly", "planned"].includes(this.data.status)) {
++        if (["planned"].includes(this.data.status)) {
              return true;
          }
          return false;
