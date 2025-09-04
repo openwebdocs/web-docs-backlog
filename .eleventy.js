@@ -18,11 +18,17 @@ for (const feature of bcd.walk(["api", "css", "javascript", "html", "http", "svg
     // TODO(calculation fails for some features)
   }
 
-  // Ignore sub features
-  // JavaScript is more nested so don't ignore there
-  // Might need to redo this and ignore the trees less eagerly
-  if (feature.id.split(".").length > 3 && !feature.id.startsWith("javascript") || feature.id.includes('_') ) {
+  // Ignore sub features that are nested deeply
+  // But don't do that for JavaScript as the tree is nested more deeply
+  if (feature.id.split(".").length > 3 && !feature.id.startsWith("javascript")) {
     continue;
+  }
+
+  // Ignore sub features that use "_"
+  // But don't do that for _event, _static, _global_attributes
+  // TODO this is still somewhat bad given it will ignore things that should be checked like interfaces in the WebGL space that contain "_"
+  if (feature.id.includes('_') && !feature.id.includes('_event') && !feature.id.includes('_static') && !feature.id.includes('global_attributes')) {
+      continue;
   }
 
   // Ignore iterables for now
